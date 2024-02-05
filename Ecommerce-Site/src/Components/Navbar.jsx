@@ -17,32 +17,32 @@ const Navbar = () => {
       <div className={menuIcons ? "navbar active" : "navbar"}>
         <ul className="navbar-lists">
           <li>
-            <a
-              href="/"
+            <NavLink
+              to="/"
               className="navbar-link"
               onClick={() => setMenuIcons(false)}
             >
               {" "}
               Home
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a href="/about" className="navbar-link">
+            <NavLink to="/about" className="navbar-link">
               {" "}
               About
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a href="/products" className="navbar-link">
+            <NavLink to="/products" className="navbar-link">
               {" "}
               Product
-            </a>
+            </NavLink>
           </li>
           <li>
-            <a href="/contact" className="navbar-link">
+            <NavLink to="/contact" className="navbar-link">
               {" "}
               Contact
-            </a>
+            </NavLink>
           </li>
           {isAuthenticated && <p>{ user.name}</p>}
           {!isAuthenticated ? (
@@ -62,11 +62,11 @@ const Navbar = () => {
           )}
 
           <li>
-            <a href="/cart" className="navbar-link cart-trolley--link">
+            <NavLink to="/cart" className="navbar-link cart-trolley--link">
               {" "}
               <FiShoppingCart className="cart-trolly" />
               <span className="cart-total--item">{total_item}</span>
-            </a>
+            </NavLink>
           </li>
         </ul>
 
