@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useProductContext } from "../context/productcontex";
 import { useParams } from "react-router-dom";
 import { styled } from "styled-components";
@@ -24,7 +24,6 @@ const SingleProduct = () => {
     company,
     price,
     description,
-    category,
     stock,
     stars,
     reviews,

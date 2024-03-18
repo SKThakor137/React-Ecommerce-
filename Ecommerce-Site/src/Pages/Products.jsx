@@ -1,4 +1,3 @@
-import React from "react";
 import FilterSection from "../Components/FilterSection";
 import Sort from "../Components/Sort";
 import ProductList from "../Components/ProductList";

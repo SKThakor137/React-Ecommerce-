@@ -6,11 +6,9 @@ import Navbar from "./Navbar";
 const Header = () => {
   return (
     <MainHeader>
-      <a href="/">
-        {" "}
-        <img src="./images/sk.png" alt="Logo for ecommerce site" />
-        {/* <img src="./images/logo.png" alt="Logo for ecommerce site" /> */}
-      </a>
+      <NavLink to="/">
+        <img src="./images/logo.png" alt="Logo for e-commerce site" />
+      </NavLink>
       <Navbar />
     </MainHeader>
   );

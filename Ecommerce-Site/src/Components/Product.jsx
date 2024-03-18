@@ -1,4 +1,3 @@
-import React from "react";
 import FormatPrice from "../helper/FormatPrice";
 import { NavLink } from "react-router-dom";
 

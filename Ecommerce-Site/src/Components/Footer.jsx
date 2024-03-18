@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { Button } from "../StylesComponents/Button";
 import { FaDiscord, FaInstagram, FaYoutube } from "react-icons/fa";
@@ -47,13 +46,7 @@ const Footer = () => {
                   <FaInstagram className="icons" />
                 </div>
                 <div>
-                  <a
-                    href="https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA"
-                    target="_blank"
-                    // ref="noreferrer"
-                  >
-                    <FaYoutube className="icons" />
-                  </a>
+                  <FaYoutube className="icons" />
                 </div>
               </div>
             </div>

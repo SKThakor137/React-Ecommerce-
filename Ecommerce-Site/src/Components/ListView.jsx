@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import FormatPrice from "../helper/FormatPrice";
 import { NavLink } from "react-router-dom";

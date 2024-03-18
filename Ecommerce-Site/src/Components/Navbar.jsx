@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { FiShoppingCart } from "react-icons/fi";
@@ -10,8 +10,7 @@ import { Button } from "../StylesComponents/Button";
 const Navbar = () => {
   const [menuIcons, setMenuIcons] = useState();
   const { total_item } = useCartContext();
-  const { loginWithRedirect, logout, user, isAuthenticated, isLoading } =
-    useAuth0();
+  const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
   return (
     <Nav>
       <div className={menuIcons ? "navbar active" : "navbar"}>
@@ -22,32 +21,28 @@ const Navbar = () => {
               className="navbar-link"
               onClick={() => setMenuIcons(false)}
             >
-              {" "}
               Home
             </NavLink>
           </li>
           <li>
             <NavLink to="/about" className="navbar-link">
-              {" "}
               About
             </NavLink>
           </li>
           <li>
             <NavLink to="/products" className="navbar-link">
-              {" "}
               Product
             </NavLink>
           </li>
           <li>
             <NavLink to="/contact" className="navbar-link">
-              {" "}
               Contact
             </NavLink>
           </li>
-          {isAuthenticated && <p>{ user.name}</p>}
+          {isAuthenticated && <p>{user.name}</p>}
           {!isAuthenticated ? (
             <li>
-              <Button onClick={() => loginWithRedirect()}>Log In</Button>;
+              <Button onClick={() => loginWithRedirect()}>Log In</Button>
             </li>
           ) : (
             <li>

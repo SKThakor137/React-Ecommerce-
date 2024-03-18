@@ -1,4 +1,3 @@
-import React from "react";
 import { useCartContext } from "../context/cart_context";
 import styled from "styled-components";
 import CartItem from "../Components/CartItem";
