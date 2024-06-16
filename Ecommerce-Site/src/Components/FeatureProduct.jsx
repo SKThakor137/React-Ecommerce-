@@ -26,11 +26,19 @@ const FeatureProduct = () => {
 };
 
 const Wrapper = styled.section`
-  padding: 9rem 0;
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    padding: 4.5rem 0;
+    margin-top: 3rem;
+  }
+  padding: 5rem 0;
+  margin-top: -5rem;
   background-color: ${({ theme }) => theme.colors.bg};
 
   .container {
     max-width: 120rem;
+  }
+  .common-heading{
+    margin-bottom: 3rem;
   }
 
   figure {

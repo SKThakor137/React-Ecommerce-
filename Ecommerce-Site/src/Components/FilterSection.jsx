@@ -5,9 +5,10 @@ import FormatPrice from "../helper/FormatPrice";
 import { Button } from "../StylesComponents/Button";
 const FilterSection = () => {
   const {
-    filters: { text, category, color, price, maxPrice, minPrice },
+    filters: { text, color, price, maxPrice, minPrice },
     all_products,
-    updateFilterValue,clearFilters
+    updateFilterValue,
+    clearFilters,
   } = useFilterContext();
 
   // TO GET THE UNIQUE DATA OF EACH FIELD
@@ -46,118 +47,136 @@ const FilterSection = () => {
         </form>
       </div>
 
-      <div className="filter-category">
-        <h3>Category</h3>
-        <div>
-          {categoryData.map((currElem, index) => {
-            return (
-              <button
-                key={index}
-                type="button"
-                name="category"
-                value={currElem}
-                onClick={updateFilterValue}
-              >
-                {currElem}
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      <div className="filter-company">
-        <h3>Company</h3>
-        <form action="#">
-          <select
-            name="company"
-            id="company"
-            className="filter-company--select"
-            onClick={updateFilterValue}
-          >
-            {companyData.map((currEle, index) => {
-              // console.log(currEle);
-              return (
-                <option value={currEle} key={index} name="company">
-                  {currEle}
-                </option>
-              );
-            })}
-          </select>
-        </form>
-      </div>
-
-      <div className="filter-colors colors">
-        <h3>Colors</h3>
-        <div className="filter-color-style">
-          {colorsData.map((currColor, index) => {
-            if (currColor === "all") {
+      <div className="mobile-grid">
+        <div className="filter-category ">
+          <h3>Category</h3>
+          <div>
+            {categoryData.map((currElem, index) => {
               return (
                 <button
                   key={index}
-                  className="color-all--style"
+                  type="button"
+                  name="category"
+                  value={currElem}
+                  onClick={updateFilterValue}
+                >
+                  {currElem}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        <div className="filter-company">
+          <h3>Company</h3>
+          <form action="#">
+            <select
+              name="company"
+              id="company"
+              className="filter-company--select"
+              onClick={updateFilterValue}
+            >
+              {companyData.map((currEle, index) => {
+                // console.log(currEle);
+                return (
+                  <option value={currEle} key={index} name="company">
+                    {currEle}
+                  </option>
+                );
+              })}
+            </select>
+          </form>
+        </div>
+
+        <div className="filter-colors colors">
+          <h3>Colors</h3>
+          <div className="filter-color-style">
+            {colorsData.map((currColor, index) => {
+              if (currColor === "all") {
+                return (
+                  <button
+                    key={index}
+                    className="color-all--style"
+                    name="color"
+                    value={currColor}
+                    onClick={updateFilterValue}
+                    type="button"
+                  >
+                    all
+                  </button>
+                );
+              }
+              return (
+                <button
+                  key={index}
+                  // className="btnStyle"
                   name="color"
+                  className={
+                    color === currColor ? "btnStyle active" : "btnStyle"
+                  }
+                  style={{ backgroundColor: currColor }}
                   value={currColor}
                   onClick={updateFilterValue}
                   type="button"
                 >
-                  all
+                  {/* {color === currColor ? "" : null} */}
+                  {color === currColor ? (
+                    <FaCheck className="checkStyle" />
+                  ) : null}
                 </button>
               );
-            }
-            return (
-              <button
-                key={index}
-                // className="btnStyle"
-                name="color"
-                className={color === currColor ? "btnStyle active" : "btnStyle"}
-                style={{ backgroundColor: currColor }}
-                value={currColor}
-                onClick={updateFilterValue}
-                type="button"
-              >
-                {/* {color === currColor ? "" : null} */}
-                {color === currColor ? (
-                  <FaCheck className="checkStyle" />
-                ) : null}
-              </button>
-            );
-          })}
+            })}
+          </div>
         </div>
-      </div>
 
-      <div className="filter_price">
-        <h3>Price</h3>
-        {/* <p>&#x20B9;{maxPrice}</p> */}
-        <p>
-          <FormatPrice price={price} />
-        </p>
+        <div className="filter_price">
+          <h3>Price</h3>
+          {/* <p>&#x20B9;{maxPrice}</p> */}
+          <p>
+            <FormatPrice price={price} />
+          </p>
 
-        <input
-          type="range"
-          name="price"
-          min={minPrice}
-          max={maxPrice}
-          value={price}
-          onChange={updateFilterValue}
-        />
-      </div>
+          <input
+            type="range"
+            name="price"
+            min={minPrice}
+            max={maxPrice}
+            value={price}
+            onChange={updateFilterValue}
+          />
+        </div>
 
-      <div className="filter-clear">
-        <Button className="btn"
-          onClick={clearFilters}
-        >
-          Clear Filters
-        </Button>
+        <div className="filter-clear">
+          <Button className="btn" onClick={clearFilters}>
+            Clear Filters
+          </Button>
+        </div>
       </div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
-  padding: 5rem 0;
+  padding: 5rem 1.3rem;
   display: flex;
   flex-direction: column;
   gap: 3rem;
+
+  .mobile-grid {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    .mobile-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  @media (max-width: ${({ theme }) => theme.media.small}) {
+    .mobile-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 
   h3 {
     padding: 2rem 0;
@@ -257,6 +276,8 @@ const Wrapper = styled.section`
   .filter-clear .btn {
     background-color: #ec7063;
     color: #000;
+    white-space: nowrap;
+  
   }
 `;
 

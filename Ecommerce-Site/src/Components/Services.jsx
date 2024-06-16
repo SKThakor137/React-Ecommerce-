@@ -43,17 +43,17 @@ const Services = () => {
   );
 };
 const Wrapper = styled.section`
-  padding: 9rem 0;
+  padding: 4rem 0;
 
   .grid {
-    gap: 4.8rem;
+    gap: 4rem;
   }
 
   .services-1,
   .services-2,
   .services-3 {
     width: auto;
-    height: 30rem;
+    height: 25rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

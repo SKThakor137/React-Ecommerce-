@@ -25,17 +25,29 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/about" className="navbar-link">
+            <NavLink
+              to="/about"
+              className="navbar-link"
+              onClick={() => setMenuIcons(false)}
+            >
               About
             </NavLink>
           </li>
           <li>
-            <NavLink to="/products" className="navbar-link">
+            <NavLink
+              to="/products"
+              className="navbar-link"
+              onClick={() => setMenuIcons(false)}
+            >
               Product
             </NavLink>
           </li>
           <li>
-            <NavLink to="/contact" className="navbar-link">
+            <NavLink
+              to="/contact"
+              className="navbar-link"
+              onClick={() => setMenuIcons(false)}
+            >
               Contact
             </NavLink>
           </li>
@@ -46,7 +58,8 @@ const Navbar = () => {
             </li>
           ) : (
             <li>
-              <Button
+                <Button
+                  style={{whiteSpace:"nowrap"}}
                 onClick={() =>
                   logout({ logoutParams: { returnTo: window.location.origin } })
                 }
@@ -57,7 +70,11 @@ const Navbar = () => {
           )}
 
           <li>
-            <NavLink to="/cart" className="navbar-link cart-trolley--link">
+            <NavLink
+              to="/cart"
+              className="navbar-link cart-trolley--link"
+              onClick={() => setMenuIcons(false)}
+            >
               {" "}
               <FiShoppingCart className="cart-trolly" />
               <span className="cart-total--item">{total_item}</span>
@@ -85,7 +102,7 @@ const Navbar = () => {
 const Nav = styled.nav`
   .navbar-lists {
     display: flex;
-    gap: 4.8rem;
+    gap: 5rem;
     align-items: center;
 
     .navbar-link {
@@ -154,7 +171,14 @@ const Nav = styled.nav`
     font-size: 1.4rem;
     padding: 0.8rem 1.4rem;
   }
-
+  @media (min-width: ${({ theme }) => theme.media.mobile}) and (max-width: ${({
+      theme,
+    }) => theme.media.tab}) {
+    .navbar-lists {
+      gap: 1.75rem;
+      font-size: 1.4rem;
+    }
+  }
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     .mobile-navbar-btn {
       display: inline-block;
@@ -195,19 +219,15 @@ const Nav = styled.nav`
       flex-direction: column;
 
       visibility: hidden;
-      opacity: 0;
-      transform: translateX(100%);
-      /* transform-origin: top; */
-      transition: all 0.1s linear;
+      transform: translateX(-100%);
+      transition: all 0.22s linear;
     }
 
     .active .navbar-lists {
       visibility: visible;
-      opacity: 1;
       transform: translateX(0);
       z-index: 999;
-      transform-origin: right;
-      transition: all 0.1s linear;
+      transition: all 0.22s linear;
 
       .navbar-link {
         font-size: 4.2rem;

@@ -13,7 +13,6 @@ const HeroSection = ({ myData }) => {
             <p className="intro-data">Welcome to</p>
             <h1>{name}</h1>
             <p>
-              {" "}
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
               atque temporibus veniam doloribus libero ad error omnis voluptates
               animi! Suscipit sapiente.
@@ -39,7 +38,10 @@ const HeroSection = ({ myData }) => {
   );
 };
 const Wrapper = styled.section`
-  padding: 12rem 0;
+  @media (max-width: ${({ theme }) => theme.media.mobile}) {
+    padding: 4rem 0;
+  }
+  padding: 4rem 0;
 
   img {
     min-width: 10rem;
@@ -89,7 +91,7 @@ const Wrapper = styled.section`
 
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     .grid {
-      gap: 10rem;
+      gap: 6rem;
     }
 
     figure::after {

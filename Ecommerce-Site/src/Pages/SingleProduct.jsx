@@ -107,7 +107,7 @@ const SingleProduct = () => {
 
 const Wrapper = styled.section`
   .container {
-    padding: 9rem 0;
+    padding: 4rem 0;
   }
 
   .product_images {

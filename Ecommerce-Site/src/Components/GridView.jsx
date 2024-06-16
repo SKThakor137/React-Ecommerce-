@@ -15,12 +15,18 @@ const GridView = ({ products }) => {
 };
 
 const Wrapper = styled.section`
-  padding: 9rem 0;
+  padding: 4rem 0;
 
   .container {
     max-width: 120rem;
   }
-
+  @media (min-width: ${({ theme }) => theme.media.mobile}) and (max-width: ${({
+      theme,
+    }) => theme.media.tab}) {
+    .grid-three-column {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
   .grid {
     gap: 3.2rem;
   }

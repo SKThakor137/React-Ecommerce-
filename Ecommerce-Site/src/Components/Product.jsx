@@ -17,8 +17,8 @@ const Product = (currElem) => {
             <h3>{name}</h3>
             <p className="card-data--price">{<FormatPrice price={price} />}</p>
           </div>
-        </div>
       </div>
+        </div>
     </NavLink>
   );
 };

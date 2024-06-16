@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Button } from "../StylesComponents/Button";
-import { FaDiscord, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaYoutube } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -40,13 +41,18 @@ const Footer = () => {
               <h3>Follow Us</h3>
               <div className="footer-social--icons">
                 <div>
-                  <FaDiscord className="icons" />
+                  <Link
+                    to={
+                      "https://www.instagram.com/sk_codes_17/?igsh=bGxiZHljOTlza3Jr"
+                    }
+                  >
+                    <FaInstagram className="icons" />
+                  </Link>
                 </div>
                 <div>
-                  <FaInstagram className="icons" />
-                </div>
-                <div>
-                  <FaYoutube className="icons" />
+                  <Link to={"https://www.youtube.com/@skthakor_codes5110"}>
+                    <FaYoutube className="icons" />
+                  </Link>
                 </div>
               </div>
             </div>
@@ -93,7 +99,7 @@ const Wrapper = styled.section`
   }
 
   footer {
-    padding: 14rem 0 9rem 0;
+    padding: 14rem 0 3rem 0;
     background-color: ${({ theme }) => theme.colors.footer_bg};
     h3 {
       color: ${({ theme }) => theme.colors.hr};
@@ -122,7 +128,7 @@ const Wrapper = styled.section`
   }
 
   .footer-bottom--section {
-    padding-top: 9rem;
+    padding-top: 5rem;
 
     hr {
       margin-bottom: 2rem;
@@ -144,11 +150,11 @@ const Wrapper = styled.section`
     }
 
     footer {
-      padding: 9rem 0 9rem 0;
+      padding: 5rem 0 5rem 0;
     }
 
     .footer-bottom--section {
-      padding-top: 4.8rem;
+      padding-top: 2rem;
     }
   }
 `;

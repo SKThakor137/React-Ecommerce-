@@ -7,9 +7,7 @@ const Products = () => {
   return (
     <Wrapper>
       <div className="container grid grid-filter-column">
-        <div>
-          <FilterSection />
-        </div>
+        <FilterSection />
         <section className="product-view--sort">
           <div className="sort-filter">
             <Sort />
@@ -23,13 +21,18 @@ const Products = () => {
   );
 };
 const Wrapper = styled.section`
+  max-width: 130rem;
+  margin: 0 auto;
   .grid-filter-column {
-    grid-template-columns: 0.2fr 1fr;
+    grid-template-columns: 0.25fr 1fr;
   }
 
   @media (max-width: ${({ theme }) => theme.media.mobile}) {
     .grid-filter-column {
       grid-template-columns: 1fr;
+    }
+    .gap {
+      gap: 2rem;
     }
   }
 `;
