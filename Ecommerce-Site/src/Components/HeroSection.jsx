@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { Button } from "../StylesComponents/Button";
+import { Link } from "react-router-dom";
 
 const HeroSection = ({ myData }) => {
-  const { name } = myData;
+  const { name, about } = myData;
   // console.log(name);
 
   return (
@@ -12,15 +13,11 @@ const HeroSection = ({ myData }) => {
           <div className="hero-section-data">
             <p className="intro-data">Welcome to</p>
             <h1>{name}</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-              atque temporibus veniam doloribus libero ad error omnis voluptates
-              animi! Suscipit sapiente.
-            </p>
+            <p>{about}</p>
 
-            <a href="">
+            <Link to="/products">
               <Button>show now</Button>
-            </a>
+            </Link>
           </div>
 
           <div className="hero-section-image">
